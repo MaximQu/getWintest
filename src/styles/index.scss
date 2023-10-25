@@ -1,0 +1,12 @@
+@use './reset.scss';
+@use './fonts.scss';
+
+
+body {
+    font-family: 'Lato';
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: .5px;
+    min-height: 100vh;
+}
