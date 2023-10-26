@@ -1,23 +1,18 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import PokemonsList from "./components/PokemonsList";
-import Search from "./components/Search";
-// import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./styles/App.scss";
+import Home from "./pages/Home";
+import Pokemon from "./pages/Pokemon";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
 	return (
-		<>
-			<Header />
-			<main className="container">
-				<h1 className="title">Who's that pokemon?</h1>
-				<Search />
-				<h2>Pokemons list</h2>
-				<PokemonsList />
-
-			</main>
-			<Footer />
-		</>
+		<main className="container">
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/pokemon/:id" element={<Pokemon />} />
+				<Route path="/*" element={<NotFound />} />
+			</Routes>
+		</main>
 	);
 };
 

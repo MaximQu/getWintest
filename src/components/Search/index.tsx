@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, FormEvent } from "react";
 import { useAppDispatch } from "../../hooks/PokemonTypedSelector";
 import { fetchPokemon } from "../../redux/search/asyncAction";
-import "./styles.scss";
+import "./styles.module.scss";
 
 const Search = () => {
 	const dispatch = useAppDispatch();

@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { fetchPokemon } from "./asyncAction";
-import { IPokemon, ISearchState } from "./types";
+import { IPokemons, ISearchState } from "./types";
 
 const initialState: ISearchState = {
 	loading: false,
@@ -21,7 +21,7 @@ export const searchSlice = createSlice({
 			})
 			.addCase(
 				fetchPokemon.fulfilled,
-				(state, action: PayloadAction<IPokemon>) => {
+				(state, action: PayloadAction<IPokemons>) => {
 					state.loading = false;
 					state.data = action.payload;
 				},
