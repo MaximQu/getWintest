@@ -1,12 +1,17 @@
-@use './reset.scss';
-@use './fonts.scss';
-
+@use "./reset.scss";
+@use "./fonts.scss";
 
 body {
-    font-family: 'Lato';
-    font-size: 1rem;
-    line-height: 1.2;
-    font-weight: 400;
-    letter-spacing: .5px;
-    min-height: 100vh;
+	font-family: "Lato";
+	font-size: 1rem;
+	line-height: 1.2;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+	min-height: 100vh;
+    background-image: linear-gradient(45deg,hsl(321deg 43% 64%) 0%,hsl(350deg 40% 69%) 10%,hsl(23deg 49% 69%) 20%,hsl(40deg 61% 65%) 30%,hsl(49deg 72% 60%) 40%,hsl(55deg 84% 49%) 50%,hsl(62deg 64% 62%) 60%,hsl(77deg 61% 71%) 70%,hsl(104deg 59% 78%) 80%,hsl(142deg 68% 79%) 90%,hsl(163deg 81% 75%) 100%)
+}
+
+.container {
+    width: min(calc(100% - 2rem), 90rem);
+    margin-inline: auto;
 }

@@ -1,11 +1,14 @@
-import './styles.scss';
+import { FC } from "react";
+import {  IPokemonResult } from "../../redux/search/types";
+import "./styles.scss";
 
-const PokemonItem = () => {
-  return (
-    <div>
+const PokemonItem: FC<{ item: IPokemonResult }> = ({ item }) => {
 
-    </div>
-  )
-}
+	return (
+		<>
+			<h2>{item?.name}</h2>
+		</>
+	);
+};
 
-export default PokemonItem
+export default PokemonItem;
