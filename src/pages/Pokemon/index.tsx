@@ -25,7 +25,7 @@ const Pokemon = () => {
 					<AbilitiesTable data={data?.abilities!} />
 					<StatsTable data={data?.stats!} />
 					<MovesTable data={data?.moves!} />
-					<Link className="btn" to="/">
+					<Link className="btn" to="/getWintest">
 						Back
 					</Link>
 				</div>

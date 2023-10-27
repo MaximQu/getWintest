@@ -8,7 +8,7 @@ const App = () => {
 	return (
 		<main className="container">
 			<Routes>
-				<Route path="/" element={<Home />} />
+				<Route path="/getWintest" element={<Home />} />
 				<Route path="/pokemon/:id" element={<Pokemon />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>

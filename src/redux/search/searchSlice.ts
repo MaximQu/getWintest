@@ -11,9 +11,7 @@ const initialState: ISearchState = {
 export const searchSlice = createSlice({
 	name: "search",
 	initialState,
-	reducers: {
-
-	},
+	reducers: {},
 	extraReducers(builder) {
 		builder
 			.addCase(fetchPokemon.pending, (state) => {
@@ -24,6 +22,9 @@ export const searchSlice = createSlice({
 				(state, action: PayloadAction<IPokemons | IPokemon>) => {
 					state.loading = false;
 					state.data = action.payload;
+					if (action.payload !== null) {
+						state.error = null;
+					}
 				},
 			)
 			.addCase(
@@ -36,6 +37,6 @@ export const searchSlice = createSlice({
 	},
 });
 
-export const { } = searchSlice.actions;
+export const {} = searchSlice.actions;
 
 export default searchSlice.reducer;

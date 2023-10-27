@@ -8,7 +8,7 @@ const AbilitiesTable: FC<{ data: IPokemonAbilities[] }> = ({ data }) => {
 			<h2 className={styles.heading}>Abilities:</h2>
 			<ul className={styles.list}>
 				{data?.map((item) => (
-					<li className={styles.item}> {item.ability.name}</li>
+					<li key={item.ability.name} className={styles.item}> {item.ability.name}</li>
 				))}
 			</ul>
 		</div>
