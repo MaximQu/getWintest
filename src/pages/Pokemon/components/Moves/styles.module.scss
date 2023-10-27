@@ -1,0 +1,44 @@
+.root {
+	max-width: 18.75rem;
+}
+
+.heading {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text {
+	overflow: hidden;
+	display: -webkit-box;
+    line-height: 1.3;
+	-webkit-line-clamp: 7; /* number of lines to show */
+	line-clamp: 7;
+	-webkit-box-orient: vertical;
+
+    &.active {
+        overflow: visible;
+        line-clamp: unset;
+        -webkit-line-clamp: unset;
+        -webkit-box-orient: horizontal;
+    }
+}
+
+.iconArrow {
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    padding: .3rem;
+    border: 1px solid black;
+    border-radius: 100vmax;
+
+    &.active {
+        rotate: 180deg;
+    }
+}

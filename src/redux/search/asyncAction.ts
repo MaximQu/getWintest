@@ -7,7 +7,7 @@ export const fetchPokemon = createAsyncThunk(
 	async (_, thunkApi) => {
 		try {
 			const response = await axios.get<IPokemons>(
-				`https://pokeapi.co/api/v2/pokemon?limit=20`,
+				`https://pokeapi.co/api/v2/pokemon?limit=18`,
 			);
 			return response.data;
 		} catch (error: any) {

@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, FormEvent } from "react";
 import { useAppDispatch } from "../../hooks/PokemonTypedSelector";
 import { fetchPokemon } from "../../redux/search/asyncAction";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 const Search = () => {
 	const dispatch = useAppDispatch();
@@ -25,10 +25,10 @@ const Search = () => {
 	}, [dispatch]);
 
 	return (
-		<form onSubmit={handleSearchPokemon} className="search__form">
+		<form onSubmit={handleSearchPokemon} className={styles.form}>
 			<input
 				ref={inputRef}
-				className="search__input"
+				className={styles.input}
 				type="text"
 				name="pokemonSearch"
 				placeholder="Enter pokemon"
@@ -36,7 +36,7 @@ const Search = () => {
 				onChange={handleInputChange}
 				required
 			/>
-			<button type="submit">Search</button>
+			<button className='btn' type="submit">Search</button>
 		</form>
 	);
 };

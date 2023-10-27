@@ -1,0 +1,24 @@
+.root {
+
+}
+
+.heading {
+    display: block;
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.item {
+    display: list-item;
+    margin-left: 1.3rem;
+
+    &::first-letter {
+        text-transform: uppercase;
+    }
+}

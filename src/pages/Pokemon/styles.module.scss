@@ -1,9 +1,17 @@
 .root {
     display: flex;
-    gap: 3rem;
+    flex-direction: column;
     justify-content: center;
-}
-.img {
-    max-width: 18.75rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 1.3rem;
+    max-width: 20rem;
+    width: 100%;
+    margin-inline: auto;
 }
 
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}

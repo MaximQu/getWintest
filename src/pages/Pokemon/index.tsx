@@ -1,7 +1,13 @@
-import { useParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
+import { Link, useParams } from "react-router-dom";
 import { IPokemon } from "../../redux/search/types";
+import useFetch from "../../hooks/useFetch";
 import styles from "./styles.module.scss";
+import Loading from "../../components/Loading";
+import AbilitiesTable from "./components/Abilities";
+import StatsTable from "./components/Stats";
+import MovesTable from "./components/Moves";
+import PokemonPhoto from "./components/PokemonPhoto";
+
 const Pokemon = () => {
 	const { id } = useParams();
 	const { data, loading, error } = useFetch<IPokemon>(
@@ -10,44 +16,18 @@ const Pokemon = () => {
 	if (error) return <span>Error: {error.message}</span>;
 	return (
 		<>
-			{data !== null && loading ? (
-				<span>Loading</span>
+			{loading ? (
+				<Loading />
 			) : (
 				<div className={styles.root}>
-					<img
-						src={
-							data?.sprites.other["official-artwork"]
-								.front_default
-						}
-						className={styles.img}
-						alt={data?.name}
-					/>
-					<h1>{data?.name}</h1>
-					<p>
-						<span>Abilities:</span>
-						{data?.abilities.map((item) => (
-							<td>{item.ability.name}</td>
-						))}
-					</p>
-					<table>
-						<tr>
-							<th>Stats</th>
-						</tr>
-						{data?.stats.map((item) => (
-							<tr className={styles.body} key={item.stat.name}>
-								<td>
-									<p>{item.stat.name}</p>
-								</td>
-								<td>
-									<span>{item.base_stat}</span>
-								</td>
-							</tr>
-						))}
-					</table>
-					<p>
-						Moves:
-						{data?.moves.map((item) => item.move.name).join(", ")}
-					</p>
+					<h1 className={styles.name}>{data?.name}</h1>
+					<PokemonPhoto data={data?.sprites!}/>
+					<AbilitiesTable data={data?.abilities!} />
+					<StatsTable data={data?.stats!} />
+					<MovesTable data={data?.moves!} />
+					<Link className="btn" to="/">
+						Back
+					</Link>
 				</div>
 			)}
 		</>

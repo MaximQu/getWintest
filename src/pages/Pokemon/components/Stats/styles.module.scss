@@ -1,0 +1,29 @@
+.table {
+    width: 100%;
+}
+
+.thead {
+    display: block;
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+}
+
+.tbody {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.body {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding-bottom: .2rem;
+    width: 100%;
+}
+
+.statName {
+    text-transform: uppercase;
+}

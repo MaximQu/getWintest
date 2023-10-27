@@ -1,5 +1,22 @@
-.search {
-    &__form {
-        display: flex;
+.form {
+	display: flex;
+    justify-content: center;
+	gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.input {
+	padding: 0.5rem;
+    font-size: 1.1rem;
+    outline: transparent;
+
+    border: 1px solid white;
+
+    &:focus {
+        border-color: black;
     }
+
+	&::placeholder {
+		opacity: 0.5;
+	}
 }

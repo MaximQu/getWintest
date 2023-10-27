@@ -1,6 +1,7 @@
 import { useAppSelector } from "../../hooks/PokemonTypedSelector";
+import Loading from "../Loading";
 import PokemonItem from "../PokemonItem";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 const PokemonsList = () => {
 	const { data, loading, error } = useAppSelector(
@@ -9,9 +10,9 @@ const PokemonsList = () => {
 
 	if (error) return <p>Error: {error}</p>;
 	return (
-		<ul>
+		<ul className={styles.root}>
 			{loading ? (
-				<span>Loading...</span>
+				<Loading />
 			) : (
 				data?.results.map((item) => (
 					<li key={item.name}>

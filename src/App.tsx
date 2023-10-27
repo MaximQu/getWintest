@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import "./styles/App.scss";
 import Home from "./pages/Home";
 import Pokemon from "./pages/Pokemon";
 import NotFound from "./pages/NotFound";
+import "./styles/App.scss";
 
 const App = () => {
 	return (

@@ -7,11 +7,122 @@ body {
 	line-height: 1.2;
 	font-weight: 400;
 	letter-spacing: 0.5px;
-	min-height: 100vh;
-    background-image: linear-gradient(45deg,hsl(321deg 43% 64%) 0%,hsl(350deg 40% 69%) 10%,hsl(23deg 49% 69%) 20%,hsl(40deg 61% 65%) 30%,hsl(49deg 72% 60%) 40%,hsl(55deg 84% 49%) 50%,hsl(62deg 64% 62%) 60%,hsl(77deg 61% 71%) 70%,hsl(104deg 59% 78%) 80%,hsl(142deg 68% 79%) 90%,hsl(163deg 81% 75%) 100%)
+	min-height: 100%;
+	background-image: linear-gradient(
+		45deg,
+		hsl(321deg 43% 64%) 0%,
+		hsl(350deg 40% 69%) 10%,
+		hsl(23deg 49% 69%) 20%,
+		hsl(40deg 61% 65%) 30%,
+		hsl(49deg 72% 60%) 40%,
+		hsl(55deg 84% 49%) 50%,
+		hsl(62deg 64% 62%) 60%,
+		hsl(77deg 61% 71%) 70%,
+		hsl(104deg 59% 78%) 80%,
+		hsl(142deg 68% 79%) 90%,
+		hsl(163deg 81% 75%) 100%
+	);
+}
+h1 {
+	font-size: clamp(1.8rem, 1.5rem + 2vw, 4rem);
+	text-transform: capitalize;
+}
+
+h2 {
+	font-size: clamp(1.5rem, 1.5rem + 1.5vw, 3rem);
+}
+
+a {
+	display: block;
+}
+
+main {
+	padding-block: 2rem;
 }
 
 .container {
-    width: min(calc(100% - 2rem), 90rem);
-    margin-inline: auto;
+	width: min(calc(100% - 2rem), 90rem);
+	margin-inline: auto;
+}
+
+.btn {
+	--color: white;
+	padding: 0.5rem 1rem;
+	max-width: 7rem;
+	width: 100%;
+	text-align: center;
+	background-color: transparent;
+	position: relative;
+	overflow: hidden;
+	font-size: 1.1rem;
+	cursor: pointer;
+	transition: 0.3s;
+	border: 1px solid var(--color);
+	text-transform: uppercase;
+	color: var(--color);
+	z-index: 1;
+
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		width: 50px;
+		height: 50px;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		border-radius: 50%;
+		z-index: -1;
+		background-color: var(--color);
+		transition: 0.6s ease;
+	}
+
+	&::before {
+		top: -1em;
+		left: -1em;
+	}
+
+	&::after {
+		left: calc(100% + 1em);
+		top: calc(100% + 1em);
+	}
+	&:hover::before,
+	&:hover::after {
+		height: 410px;
+		width: 410px;
+	}
+	&:hover {
+		color: rgb(10, 25, 30);
+	}
+
+	&:active {
+		filter: brightness(0.8);
+	}
+}
+
+.sheen:after {
+	content: "";
+	position: absolute;
+	top: -50%;
+	right: -50%;
+	bottom: -50%;
+	left: -50%;
+	z-index: -1;
+	background: linear-gradient(
+		to bottom,
+		rgba(229, 172, 142, 0),
+		rgba(255, 255, 255, 0.5) 50%,
+		rgba(229, 172, 142, 0)
+	);
+	transform: rotateZ(60deg) translate(-2em, 25.5em);
+}
+
+.sheen:hover::after {
+	animation: sheen 1s forwards;
+	z-index: 1;
+}
+
+@keyframes sheen {
+	100% {
+		transform: rotateZ(60deg) translate(1em, -25em);
+	}
 }

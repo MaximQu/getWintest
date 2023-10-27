@@ -1,6 +1,26 @@
-.pokemon {
-    &__img {
-        max-width: 300px;
-        object-fit: cover;
-    }
+
+
+.img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.item {
+    border: 1px solid white;
+    background-color: rgba(white, .01);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.title {
+    text-align: center;
+}
+
+.name {
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    text-align: center;
 }

@@ -4,32 +4,39 @@ export interface IPokemons {
 	previous: unknown;
 	results: IPokemonResult[];
 }
-
 export interface IPokemon {
-    name: string;
-	sprites: {
-		other: {
-			"official-artwork": {
-				front_default: string;
-			};
+	name: string;
+	sprites: IPokemonPhoto;
+	abilities: IPokemonAbilities[];
+	stats: IPokemonStats[];
+	moves: IPokemonMoves[];
+}
+
+export interface IPokemonPhoto {
+	other: {
+		"official-artwork": {
+			front_default: string;
 		};
 	};
-	abilities: {
-		ability: {
-			name: string;
-		};
-	}[];
-	stats: {
-		base_stat: number;
-		stat: {
-			name: string;
-		};
-	}[];
-	moves: {
-		move: {
-			name: string;
-		};
-	}[];
+}
+
+export interface IPokemonAbilities {
+	ability: {
+		name: string;
+	};
+}
+
+export interface IPokemonStats {
+	base_stat: number;
+	stat: {
+		name: string;
+	};
+}
+
+export interface IPokemonMoves {
+	move: {
+		name: string;
+	};
 }
 
 export interface IPokemonResult {
