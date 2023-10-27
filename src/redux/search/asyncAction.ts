@@ -1,13 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { IPokemon, IPokemons } from "./types";
 import axios from "axios";
-import { IPokemons } from "./types";
 
 export const fetchPokemon = createAsyncThunk(
 	"search/fetchPokemon",
-	async (_, thunkApi) => {
+	async (queryParams: string = '', thunkApi) => {
 		try {
-			const response = await axios.get<IPokemons>(
-				`https://pokeapi.co/api/v2/pokemon?limit=18`,
+			const response = await axios.get<IPokemons | IPokemon>(
+				`https://pokeapi.co/api/v2/pokemon${queryParams ? '/' + queryParams : '?limit=20'}`,
 			);
 			return response.data;
 		} catch (error: any) {

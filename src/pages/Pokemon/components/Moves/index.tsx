@@ -1,6 +1,6 @@
 import  { FC, useState } from "react";
 import styles from "./styles.module.scss";
-import { IPokemonMoves } from "../../../../redux/search/types";
+import { IPokemonMoves } from "@/redux/search/types";
 
 const MovesTable: FC<{ data: IPokemonMoves[] }> = ({ data }) => {
 	const [showList, setShowList] = useState(false);

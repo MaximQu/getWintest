@@ -1,6 +1,6 @@
 import  { FC } from "react";
 import styles from "./styles.module.scss";
-import { IPokemonAbilities } from "../../../../redux/search/types";
+import { IPokemonAbilities } from "@/redux/search/types";
 
 const AbilitiesTable: FC<{ data: IPokemonAbilities[] }> = ({ data }) => {
 	return (

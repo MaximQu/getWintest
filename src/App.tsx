@@ -10,7 +10,7 @@ const App = () => {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/pokemon/:id" element={<Pokemon />} />
-				<Route path="/*" element={<NotFound />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</main>
 	);

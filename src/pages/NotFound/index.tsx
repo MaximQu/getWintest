@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-
+import styles from "./styles.module.scss";
 
 const NotFound = () => {
 	return (
-		<div>
-			<div>NotFound</div>
+		<div className={styles.root}>
+			<span className={styles.text}>Not found</span>
 			<Link className="btn" to='/'>Back</Link>
 		</div>
 	);

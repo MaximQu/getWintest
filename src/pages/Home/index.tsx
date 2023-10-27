@@ -1,5 +1,5 @@
-import Search from "../../components/Search";
-import PokemonsList from "../../components/PokemonsList";
+import PokemonsList from "@/components/PokemonsList";
+import Search from "@/components/Search";
 import styles from "./styles.module.scss";
 
 const Home = () => {

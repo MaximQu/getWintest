@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { IPokemonResult } from "../../redux/search/types";
 import styles from "./styles.module.scss";
+import { IPokemonResult } from "@/redux/search/types";
 
 const PokemonItem: FC<{ item: IPokemonResult }> = ({ item }) => {
 	const pokemonId = item.url.split("/").slice(-2, -1)[0];

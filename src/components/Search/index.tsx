@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, FormEvent } from "react";
-import { useAppDispatch } from "../../hooks/PokemonTypedSelector";
-import { fetchPokemon } from "../../redux/search/asyncAction";
+import { fetchPokemon } from "@/redux/search/asyncAction";
+import { useAppDispatch } from "@/hooks/PokemonTypedSelector";
 import styles from "./styles.module.scss";
 
 const Search = () => {
@@ -17,11 +17,11 @@ const Search = () => {
 
 	const handleSearchPokemon = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		dispatch(fetchPokemon());
+		dispatch(fetchPokemon(inputValue));
 	};
 
 	useEffect(() => {
-		dispatch(fetchPokemon());
+		dispatch(fetchPokemon(''));
 	}, [dispatch]);
 
 	return (

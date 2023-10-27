@@ -5,6 +5,7 @@ export interface IPokemons {
 	results: IPokemonResult[];
 }
 export interface IPokemon {
+    id?: number;
 	name: string;
 	sprites: IPokemonPhoto;
 	abilities: IPokemonAbilities[];
@@ -47,5 +48,5 @@ export interface IPokemonResult {
 export interface ISearchState {
 	loading: boolean;
 	error: null | string;
-	data: null | IPokemons;
+	data: null | IPokemons | IPokemon;
 }

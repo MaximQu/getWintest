@@ -1,6 +1,6 @@
 import  { FC } from "react";
 import styles from "./styles.module.scss";
-import { IPokemonStats } from "../../../../redux/search/types";
+import { IPokemonStats } from "@/redux/search/types";
 
 const StatsTable: FC<{data: IPokemonStats[]}> = ({ data }) => {
 	return (

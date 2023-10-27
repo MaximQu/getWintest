@@ -21,6 +21,7 @@
 	-webkit-line-clamp: 7; /* number of lines to show */
 	line-clamp: 7;
 	-webkit-box-orient: vertical;
+    animation-duration: .2s;
 
     &.active {
         overflow: visible;
