@@ -1,46 +1,30 @@
-// import { useState } from "react";
+import ReactPaginate from "react-paginate";
+import { useAppDispatch } from "@/hooks/PokemonTypedSelector";
+import { fetchPokemons } from "@/redux/search/asyncAction";
+import styles from "./styles.module.scss";
 
-// import ReactPaginate from "react-paginate";
+const Pagination = ({ data }: { data: number }) => {
+	const dispatch = useAppDispatch();
 
-// // Example items, to simulate fetching from another resources.
-// // const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+	return (
+		<div>
+			<ReactPaginate
+				containerClassName={styles.wrapper}
+				pageLinkClassName={styles.item}
+				nextLinkClassName={styles.next}
+				previousLinkClassName={styles.prev}
+				activeClassName={styles.activePage}
+				disabledClassName={styles.disabled}
+				breakLabel="..."
+				nextLabel="next >"
+				onPageChange={(e) => dispatch(fetchPokemons(e.selected * 20))}
+				pageRangeDisplayed={5}
+				pageCount={Math.ceil(data / 20)}
+				previousLabel="< prev"
+				renderOnZeroPageCount={null}
+			/>
+		</div>
+	);
+};
 
-// // function Items({ currentItems }) {
-// // 	return (
-// // 		<>
-// // 			{currentItems &&
-// // 				currentItems.map((item) => (
-// // 					<div>
-// // 						<h3>Item #{item}</h3>
-// // 					</div>
-// // 				))}
-// // 		</>
-// // 	);
-// // }
-
-// const PaginatedItems = ({ itemsPerPage }) => {
-// 	// const [itemOffset, setItemOffset] = useState(0);
-
-// 	// const endOffset = itemOffset + itemsPerPage;
-// 	// const currentItems = items.slice(itemOffset, endOffset);
-// 	// const pageCount = Math.ceil(items.length / itemsPerPage);
-
-// 	// const handlePageClick = (event) => {
-// 	// 	const newOffset = (event.selected * itemsPerPage) % items.length;
-// 	// 	setItemOffset(newOffset);
-// 	// };
-
-// 	return (
-// 		<>
-// 			<ReactPaginate
-// 				breakLabel="..."
-// 				nextLabel="next >"
-// 				onPageChange={handlePageClick}
-// 				pageRangeDisplayed={5}
-// 				pageCount={pageCount}
-// 				previousLabel="< previous"
-// 				renderOnZeroPageCount={null}
-// 			/>
-// 		</>
-// 	);
-// };
+export default Pagination;

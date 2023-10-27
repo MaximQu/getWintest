@@ -1,20 +1,15 @@
-import ReactPaginate from "react-paginate";
-import {
-	useAppDispatch,
-	useAppSelector,
-} from "../../hooks/PokemonTypedSelector";
+import { useAppSelector } from "../../hooks/PokemonTypedSelector";
 import Loading from "../Loading";
+import Pagination from "../Pagination";
 import PokemonItem from "../PokemonItem";
 import SearchError from "../SearchError";
 import styles from "./styles.module.scss";
-import {  fetchPokemons } from "@/redux/search/asyncAction";
 
 const PokemonsList = () => {
 	const { data, loading, error } = useAppSelector(
 		(state) => state.searchSlice,
 	);
 
-	const dispatch = useAppDispatch();
 	if (error) return <SearchError error={error} />;
 
 	if (data && "id" in data) {
@@ -50,23 +45,7 @@ const PokemonsList = () => {
 						))
 					)}
 				</ul>
-				<ReactPaginate
-					containerClassName={styles.wrapper}
-					pageLinkClassName={styles.item}
-					nextLinkClassName={styles.next}
-					previousLinkClassName={styles.prev}
-                    activeClassName={styles.activePage}
-                    disabledClassName={styles.disabled}
-					breakLabel="..."
-					nextLabel="next >"
-					onPageChange={(e) =>
-						dispatch(fetchPokemons(e.selected * 20))
-					}
-					pageRangeDisplayed={5}
-					pageCount={Math.ceil(data.count / 20)}
-					previousLabel="< prev"
-					renderOnZeroPageCount={null}
-				/>
+				<Pagination data={data.count} />
 			</>
 		);
 	}
