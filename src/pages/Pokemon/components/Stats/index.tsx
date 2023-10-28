@@ -1,8 +1,8 @@
-import  { FC } from "react";
+import { IPokemonStats } from "@/redux/searchPokemons/types";
+import { FC } from "react";
 import styles from "./styles.module.scss";
-import { IPokemonStats } from "@/redux/search/types";
 
-const StatsTable: FC<{data: IPokemonStats[]}> = ({ data }) => {
+const StatsTable: FC<{ data: IPokemonStats[] }> = ({ data }) => {
 	return (
 		<table className={styles.table}>
 			<thead className={styles.thead}>

@@ -1,6 +1,6 @@
+import { IPokemonPhoto } from "@/redux/searchPokemons/types";
 import { FC } from "react";
 import styles from "./styles.module.scss";
-import { IPokemonPhoto } from "@/redux/search/types";
 
 const PokemonPhoto: FC<{ data: IPokemonPhoto }> = ({ data }) => {
 	return (

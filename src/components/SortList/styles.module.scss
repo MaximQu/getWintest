@@ -1,0 +1,23 @@
+.root {
+	display: flex;
+    align-items: center;
+	gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.item {
+    cursor: pointer;
+    padding: .5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    min-width: 60px;
+    transition-duration: .1s ;
+    &:hover {
+        background-color: rgba(black,.3);
+        color: white;
+    }
+
+    &:active {
+        translate: 0 5px
+    }
+}

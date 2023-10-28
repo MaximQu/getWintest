@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 const SearchError = ({ error }: { error: string }) => {
 	return (
 		<div className={styles.root}>
-			<img className={styles.img} src="./images/error-pikachu.gif" alt="Pokemon" />
+			<img className={styles.img} src="/images/error-pikachu.gif" alt="Pokemon" />
 			<p className={styles.text}>Error: {error}</p>
 		</div>
 	);

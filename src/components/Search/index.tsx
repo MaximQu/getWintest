@@ -1,11 +1,14 @@
-import { useEffect, useState, useRef, FormEvent } from "react";
-import { fetchPokemon, fetchPokemons } from "@/redux/search/asyncAction";
-import { useAppDispatch } from "@/hooks/PokemonTypedSelector";
+import { useAppDispatch, useAppSelector } from "@/hooks/PokemonTypedSelector";
+
+import { FormEvent, useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
+import { fetchPokemon, fetchPokemons } from "@/redux/searchPokemons/asyncAction";
 
 const Search = () => {
 	const dispatch = useAppDispatch();
-
+	const currPage  = useAppSelector(
+		(state) => state.pokemonSlice.currPage,
+	);
 	const [inputValue, setInputValue] = useState("");
 	const inputRef = useRef<HTMLInputElement>(null);
 
@@ -18,20 +21,16 @@ const Search = () => {
 	const handleSearchPokemon = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (inputValue === "") {
-		console.log("1");
-
-			dispatch(fetchPokemons(0));
-		console.log("2");
-
+			dispatch(fetchPokemons(currPage));
 		} else {
-		console.log("3");
-
 			dispatch(fetchPokemon(inputValue));
 		}
 	};
 
 	useEffect(() => {
-		dispatch(fetchPokemons(0));
+        console.log(currPage + 'curr')
+
+		dispatch(fetchPokemons(currPage));
 	}, [dispatch]);
 
 	return (

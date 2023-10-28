@@ -1,15 +1,15 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
-import { IPokemonResult } from "@/redux/search/types";
+import { IPokemon } from "@/redux/searchPokemons/types";
 
-const PokemonItem: FC<{ item: IPokemonResult }> = ({ item }) => {
-	const pokemonId = item.url.split("/").slice(-2, -1)[0];
-	const pokemonImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
+const PokemonItem: FC<{ item: IPokemon }> = ({ item }) => {
 	return (
-		<Link className={`${styles.item} sheen` }to={`/pokemon/${pokemonId}`}>
+		<Link className={`${styles.item} sheen` }to={`/pokemon/${item.id}`}
+        >
 			<h2 className={styles.name}>{item?.name}</h2>
-			<img className={styles.img} src={pokemonImg} alt={item?.name} />
+			<img className={styles.img} src={item.sprites.other["official-artwork"].front_default} alt={item?.name} />
+            <p>Type: {item.types[0].type.name}</p>
 		</Link>
 	);
 };

@@ -1,29 +1,33 @@
-import ReactPaginate from "react-paginate";
 import { useAppDispatch } from "@/hooks/PokemonTypedSelector";
-import { fetchPokemons } from "@/redux/search/asyncAction";
+import ReactPaginate from "react-paginate";
 import styles from "./styles.module.scss";
+import { fetchPokemons } from "@/redux/searchPokemons/asyncAction";
+import { changeCurrPage } from "@/redux/searchPokemons/searchPokemonsSlice";
 
-const Pagination = ({ data }: { data: number }) => {
+const Pagination = ({ data, currPage }: { data: number; currPage: number }) => {
 	const dispatch = useAppDispatch();
+	const handleChangePage = (e: any) => {
+		dispatch(fetchPokemons(e.selected));
+		dispatch(changeCurrPage(e.selected));
+	};
 
 	return (
-		<div>
-			<ReactPaginate
-				containerClassName={styles.wrapper}
-				pageLinkClassName={styles.item}
-				nextLinkClassName={styles.next}
-				previousLinkClassName={styles.prev}
-				activeClassName={styles.activePage}
-				disabledClassName={styles.disabled}
-				breakLabel="..."
-				nextLabel="next >"
-				onPageChange={(e) => dispatch(fetchPokemons(e.selected * 20))}
-				pageRangeDisplayed={5}
-				pageCount={Math.ceil(data / 20)}
-				previousLabel="< prev"
-				renderOnZeroPageCount={null}
-			/>
-		</div>
+		<ReactPaginate
+			containerClassName={styles.wrapper}
+			pageLinkClassName={styles.item}
+			nextLinkClassName={styles.next}
+			previousLinkClassName={styles.prev}
+			activeClassName={styles.activePage}
+			disabledClassName={styles.disabled}
+			forcePage={currPage}
+			breakLabel="..."
+			nextLabel="next >"
+			onPageChange={handleChangePage}
+			pageRangeDisplayed={5}
+			pageCount={Math.ceil(data / 20)}
+			previousLabel="< prev"
+			renderOnZeroPageCount={null}
+		/>
 	);
 };
 

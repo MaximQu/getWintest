@@ -2,15 +2,7 @@ export interface IPokemons {
 	count: number;
 	next: string;
 	previous: unknown;
-	results: IPokemonResult[];
-}
-export interface IPokemon {
-    id?: number;
-	name: string;
-	sprites: IPokemonPhoto;
-	abilities: IPokemonAbilities[];
-	stats: IPokemonStats[];
-	moves: IPokemonMoves[];
+	results: IPokemon[];
 }
 
 export interface IPokemonPhoto {
@@ -33,20 +25,19 @@ export interface IPokemonStats {
 		name: string;
 	};
 }
-
 export interface IPokemonMoves {
 	move: {
 		name: string;
 	};
 }
 
-export interface IPokemonResult {
-	name: string;
+export interface IPokemon {
+	id: number;
 	url: string;
-}
-
-export interface ISearchState {
-	loading: boolean;
-	error: null | string;
-	data: null | IPokemons | IPokemon;
+	name: string;
+	sprites: IPokemonPhoto;
+	abilities: IPokemonAbilities[];
+	stats: IPokemonStats[];
+	moves: IPokemonMoves[];
+    types: [{type: {name: string}}]
 }

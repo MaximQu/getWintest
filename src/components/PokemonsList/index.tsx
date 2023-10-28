@@ -1,4 +1,4 @@
-import { useAppSelector } from "../../hooks/PokemonTypedSelector";
+import { useAppSelector } from "@/hooks/PokemonTypedSelector";
 import Loading from "../Loading";
 import Pagination from "../Pagination";
 import PokemonItem from "../PokemonItem";
@@ -6,8 +6,9 @@ import SearchError from "../SearchError";
 import styles from "./styles.module.scss";
 
 const PokemonsList = () => {
-	const { data, loading, error } = useAppSelector(
-		(state) => state.searchSlice,
+
+	const { data, loading, error, currPage } = useAppSelector(
+		(state) => state.pokemonSlice,
 	);
 
 	if (error) return <SearchError error={error} />;
@@ -20,10 +21,7 @@ const PokemonsList = () => {
 				) : (
 					<li>
 						<PokemonItem
-							item={{
-								name: data.name,
-								url: `https://pokeapi.co/api/v2/pokemon/${data.id}/`,
-							}}
+							item={data}
 						/>
 					</li>
 				)}
@@ -45,7 +43,7 @@ const PokemonsList = () => {
 						))
 					)}
 				</ul>
-				<Pagination data={data.count} />
+				<Pagination data={data.count} currPage={currPage} />
 			</>
 		);
 	}

@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import searchSlice from "./search/searchSlice";
+import pokemonSlice from "./searchPokemons/searchPokemonsSlice";
+
 
 export const store = configureStore({
-	reducer: { searchSlice },
+	reducer: { pokemonSlice },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
