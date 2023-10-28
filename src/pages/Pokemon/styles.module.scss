@@ -1,17 +1,27 @@
 .root {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 2rem;
     font-size: 1.3rem;
-    max-width: 20rem;
     width: 100%;
     margin-inline: auto;
+    margin-bottom: 1.5rem;
+}
+
+.wrapp {
+    max-width: 25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .block {
     display: flex;
     flex-direction: column;
     gap: .5rem;
+}
+
+.btn {
+    margin-inline: auto;
 }

@@ -28,8 +28,6 @@ const Search = () => {
 	};
 
 	useEffect(() => {
-        console.log(currPage + 'curr')
-
 		dispatch(fetchPokemons(currPage));
 	}, [dispatch]);
 

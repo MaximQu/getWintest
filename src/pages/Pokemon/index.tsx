@@ -19,16 +19,22 @@ const Pokemon = () => {
 			{loading ? (
 				<Loading />
 			) : (
-				<div className={styles.root}>
-					<h1 className={styles.name}>{data?.name}</h1>
-					<PokemonPhoto data={data?.sprites!} />
-					<AbilitiesTable data={data?.abilities!} />
-					<StatsTable data={data?.stats!} />
-					<MovesTable data={data?.moves!} />
-					<Link className="btn" to="/getWintest">
+				<>
+					<div className={styles.root}>
+						<div className="">
+							<h1 className={styles.name}>{data?.name}</h1>
+							<PokemonPhoto data={data?.sprites!} />
+						</div>
+						<div className={styles.wrapp}>
+							<AbilitiesTable data={data?.abilities!} />
+							<StatsTable data={data?.stats!} />
+							<MovesTable data={data?.moves!} />
+						</div>
+					</div>
+					<Link className={`${styles.btn} btn`} to="/">
 						Back
 					</Link>
-				</div>
+				</>
 			)}
 		</>
 	);

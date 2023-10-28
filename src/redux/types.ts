@@ -6,3 +6,5 @@ export interface ISearchState {
 	data: null | IPokemons | IPokemon;
     currPage: number;
 }
+
+export type IFullPokemonData = IPokemon | IPokemons | null

@@ -2,7 +2,7 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
 	grid-template-rows: minmax((12.5rem, min-content));
-	gap: clamp(0.8rem, 0.3rem + 1vw, 2rem);
+	gap: .5rem;
 	place-items: center;
 	margin-bottom: 2rem;
 
@@ -10,4 +10,3 @@
 		max-width: 250px;
 	}
 }
-

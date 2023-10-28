@@ -21,11 +21,11 @@ const Pagination = ({ data, currPage }: { data: number; currPage: number }) => {
 			disabledClassName={styles.disabled}
 			forcePage={currPage}
 			breakLabel="..."
-			nextLabel="next >"
+			nextLabel="→"
 			onPageChange={handleChangePage}
 			pageRangeDisplayed={5}
 			pageCount={Math.ceil(data / 20)}
-			previousLabel="< prev"
+			previousLabel="←"
 			renderOnZeroPageCount={null}
 		/>
 	);

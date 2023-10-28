@@ -9,7 +9,6 @@ export const fetchPokemons = createAsyncThunk(
 			const response = await axios.get<IPokemons>(
 				`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offsetNum * 20}`,
 			);
-
 			const pokemonDataRequests = response.data.results.map(
 				async (pokemon) => {
 					const pokemonFullData = await axios.get<IPokemon>(
@@ -21,7 +20,6 @@ export const fetchPokemons = createAsyncThunk(
 					};
 				},
 			);
-
 			const updatedResults = await Promise.all(pokemonDataRequests);
 
 			return {
