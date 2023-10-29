@@ -1,5 +1,5 @@
 import styles from './styles.module.scss'
-import pikachu from '/images/pikachu.gif';
+import pikachu from '/pikachu.gif';
 const Loading = () => {
   return (
     <div className={styles.root}>

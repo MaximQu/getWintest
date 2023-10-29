@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import pikachuError from '/images/error-pikachu.gif';
+import pikachuError from '/error-pikachu.gif';
 
 const SearchError = ({ error }: { error: string }) => {
 	return (
