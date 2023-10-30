@@ -12,7 +12,7 @@ export const fetchPokemons = createAsyncThunk(
 			const pokemonDataRequests = response.data.results.map(
 				async (pokemon) => {
 					const pokemonFullData = await axios.get<IPokemon>(
-						`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`,
+						`https://pokeapi.co/api/v2/pokemon/${pokemon.name.toLowerCase()}/`,
 					);
 					return {
 						...pokemonFullData.data,
@@ -37,7 +37,7 @@ export const fetchPokemon = createAsyncThunk(
 	async (name: string = "", thunkApi) => {
 		try {
 			const response = await axios.get<IPokemon>(
-				`https://pokeapi.co/api/v2/pokemon/${name}/`,
+				`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}/`,
 			);
 			return {
 				...response.data,
